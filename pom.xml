@@ -7,6 +7,21 @@
     <groupId>ocean</groupId>
     <artifactId>wang</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <!--统一管理spring jar包版本 -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring.version>4.3.7.RELEASE</spring.version>
+    </properties>
 
+    <!--添加 依赖 -->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+
+    </dependencies>
 
 </project>

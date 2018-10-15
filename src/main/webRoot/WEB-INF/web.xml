@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!-- 测试一下修改git 用户名是否有效 -->
+<!--web.xml头部文件 -->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         id="WebApp_ID" version="2.5">
+
+    <!--配置DispatcherServlet,该项设置用于制定使用哪个servlet拦截请求进行处理-->
+    <servlet>
+        <servlet-name>springDispatcherServlet</servlet-name>
+        <servlet-class>org.spring</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name></servlet-name>
+        <url-pattern></url-pattern>
+    </servlet-mapping>
+
+
+
+
+</web-app>
