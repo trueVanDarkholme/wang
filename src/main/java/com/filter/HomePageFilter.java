@@ -12,8 +12,6 @@ public class HomePageFilter implements Filter {
 
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
-        System.out.println("进入拦截器请求");
-        System.out.println("请求地址是:"+request.getServletPath());
         String path = request.getServletPath();
         if(path.equals("/")){
             HttpServletResponse response = (HttpServletResponse)servletResponse;
