@@ -9,5 +9,6 @@ public class TestService {
     private static  final Logger LOGGER = LogManager.getLogger(TestController.class);
     public void toTest2(){
         LOGGER.info("我爱北京天安门");
+        LOGGER.error("ass we can");
     }
 }

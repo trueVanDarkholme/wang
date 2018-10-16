@@ -1,38 +1,31 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="OFF" monitorInterval="1800">
-    <properties>
-        <property name="LOG_HOME">/WEB-INF/logs</property>
-        <property name="FILE_NAME">finance-pay</property>
-    </properties>
-
-
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    log4j2版本不再像支持1.X中的properties后缀的文件配置方式，该版本配置文件后缀名只支持 .xml .json .jsn
+    系统选择配置文件的优先级(从先到后)如下:
+    .classpath下的名为log4j2-test.json 或者log4j2-test.jsn的文件.
+    .classpath下的名为log4j2-test.xml的文件.
+    .classpath下名为log4j2.json 或者log4j2.jsn的文件.
+    .classpath下名为log4j2.xml的文件.
+    我们一般默认使用log4j2.xml进行命名。如果本地要测试，可以把log4j2-test.xml放到classpath，而正式环境使用log4j2.xml，则在打包部署的时候不要打包log4j2-test.xml即可。
+ -->
+<Configuration status="INFO">
     <Appenders>
-        <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+        <Console name="Console"  target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </Console>
-
-        <RollingFile name="running-log" fileName="${LOG_HOME}/${FILE_NAME}.log"
-                     filePattern="${LOG_HOME}/$${date:yyyy-MM}/${FILE_NAME}-%d{yyyy-MM-dd}-%i.log.gz"
-                     immediateFlush="true">
-            <PatternLayout
-                    pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n" />
-            <Policies>
-                <TimeBasedTriggeringPolicy />
-                <SizeBasedTriggeringPolicy size="10 MB" />
-            </Policies>
-            <DefaultRolloverStrategy max="20" />
-        </RollingFile>
     </Appenders>
     <Loggers>
-
-        <!-- <Logger name="com.cssweb.test.app" level="trace" additivity="true"> 
-            <AppenderRef ref="running-log" /> </Logger> -->
-
-        <Root level="info">
-            <!-- 这里是输入到文件，很重要-->
-            <AppenderRef ref="running-log" />
-            <!-- 这里是输入到控制台-->
-            <AppenderRef ref="Console" />
+        <Root level="INFO">
+            <AppenderRef ref="Console"/>
         </Root>
     </Loggers>
 </Configuration>
+<!--
+    配置文件解析
+    （1）根节点Configuration有两个属性，status和monitorinterval,有两个子节点 Appenders 和Loggers（表明可以定义多个Appender和Logger）
+       status用来指定本身的打印日志级别
+       monitorinterval用于指定log4j自动重新配置的监测间隔时间，单位是s,最小是5s.
+
+
+
+-->

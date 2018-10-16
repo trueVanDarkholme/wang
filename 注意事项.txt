@@ -1,2 +1,7 @@
 本项目需要上传至git
 本次更改是在网页中
+该项目因需要调试，注释掉了本地tomcat的catalina.bat中的调试端口，如果需要用到远程调试，请重新打开
+
+
+检查一下本地tomcat的Catlina.bat/Catlina.sh配置（我的电脑是windows系统，所以看catalina.bat），
+有Set "CATALINA_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n"类似这个的配置，解开注释
