@@ -11,5 +11,6 @@ public class ApplicationTest {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("springMVC-main.xml");
         TestService tc = (TestService) ctx.getBean("testService");
         tc.toTest2();
+        System.out.println(23333);
     }
 }
